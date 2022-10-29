@@ -17,7 +17,7 @@ module.exports = {
         'no-undef': 'off',
         quotes: ['error', 'single'],
         'no-unused-declaration': 'off',
-        '@typescript-eslint/no-explicit-any': 'warn',
+        '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-empty-function': 'error',
         'no-unsafe-optional-chaining': 'warn',
         'react-hooks/exhaustive-deps': 'warn',
