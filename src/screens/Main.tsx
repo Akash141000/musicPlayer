@@ -1,11 +1,12 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, View } from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import { AudioControl } from '../assets/icons/AudioControllerIcon';
+import { AudioControlIcon } from '../assets/icons/AudioControllerIcon';
 import { AudioSlider } from '../components/AudioSlider';
+import { MainHeader } from '../components/MainHeader';
 
 //Download Links for songs
 const filesDownloadLink = [
@@ -13,23 +14,19 @@ const filesDownloadLink = [
   'https://cdn.pixabay.com/download/audio/2021/10/26/audio_0979fa832a.mp3?filename=ukulele-trip-version-60s-9893.mp3',
 ];
 
-//Create music directory
-// const dir = RNFetchBlob.fs.dirs.MusicDir;
-// // RNFS.mkdir(`${dir}/Music`); //create directory to store music
-
 const Main = () => {
   return (
     <ImageBackground
       source={require('../assets/backgroundImages/MainScreenBackground.png')}
     >
       <View style={style.mainContainer}>
-        <View style={style.headerContainer}>
-          <Text>Close</Text>
-        </View>
+        <MainHeader />
         <View style={style.audioControlContainer}>
           {filesDownloadLink.map((song, index) => (
             <AudioSlider
-              sliderIcon={<AudioControl />}
+              sliderIcon={
+                <AudioControlIcon color={index === 0 ? 'blue' : 'red'} />
+              }
               songLink={song}
               key={index}
             />
@@ -57,7 +54,7 @@ const style = StyleSheet.create({
     width: wp('100%'),
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     paddingBottom: hp('10%'),
   },
 });
